@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns:ns2="http://www.tibco.com/schemas/FoodOrdering/Schemas/Schema.xsd2" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:ns="http://www.tibco.com/schemas/Adapter_FoodTask/Schemas/Schema.xsd" xmlns:tns="http://xmlns.example.com/1732119922601" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://xmlns.example.com/1732119922601">
+    <import namespace="http://www.tibco.com/schemas/Adapter_FoodTask/Schemas/Schema.xsd" location="../Schemas/Customer_Order.xsd"/>
+    <import namespace="http://www.tibco.com/schemas/FoodOrdering/Schemas/Schema.xsd2" location="../Schemas/Food_Order.xsd"/>
+    <message name="Customer_Input">
+        <part name="OrderInput" element="ns:Customer_Order"/>
+    </message>
+    <message name="FoodOrder">
+        <part name="FoodOrder" element="ns2:FoodOrder"/>
+    </message>
+    <portType name="PortType">
+        <operation name="Operation">
+            <input message="tns:Customer_Input"/>
+            <output message="tns:FoodOrder"/>
+            <fault name="fault1" message="tns:"/>
+        </operation>
+    </portType>
+</definitions>

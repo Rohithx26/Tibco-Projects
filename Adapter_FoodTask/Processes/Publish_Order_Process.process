@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pd:ProcessDefinition xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:ns2="http://www.tibco.com/namespaces/tnt/plugins/jms" xmlns:ns1="http://www.tibco.com/xmlns/ae2xsd/2002/05/ae/ADB/Pending" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:ns="http://www.tibco.com/xmlns/ae2xsd/2002/05/ae/ADB/ActiveDatabaseAdapterConfiguration" xmlns:pfx="http://www.tibco.com/schemas/FoodOrdering/Schemas/Schema.xsd2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <xs:import xmlns:xs="http://www.w3.org/2001/XMLSchema" namespace="http://www.tibco.com/schemas/FoodOrdering/Schemas/Schema.xsd2" schemaLocation="/Schemas/Food_Order.xsd"/>
+    <pd:name>Processes/Publish_Order_Process.process</pd:name>
+    <pd:startName>Adapter Subscriber</pd:startName>
+    <pd:startX>0</pd:startX>
+    <pd:startY>0</pd:startY>
+    <pd:returnBindings/>
+    <pd:starter name="Adapter Subscriber">
+        <pd:type>com.tibco.plugin.ae.AESubscriberActivity</pd:type>
+        <pd:resourceType>ae.aepalette.aeSubscription</pd:resourceType>
+        <pd:x>148</pd:x>
+        <pd:y>109</pd:y>
+        <config>
+            <ae.aepalette.sharedProperties.transportChoice>default</ae.aepalette.sharedProperties.transportChoice>
+            <ae.aepalette.sharedProperties.useRequestReply>false</ae.aepalette.sharedProperties.useRequestReply>
+            <tpPluginEndpointName>ADBPublisher</tpPluginEndpointName>
+            <ae.aepalette.sharedProperties.transportType>jmsTopic</ae.aepalette.sharedProperties.transportType>
+            <ae.aepalette.sharedProperties.jmsTopicSessionTopic>%domain%.%deploymt%.adb.PendingActiveDatabaseAdapterConfiguration.ADBPublisher</ae.aepalette.sharedProperties.jmsTopicSessionTopic>
+            <ae.aepalette.sharedProperties.jmsTopicSessionConnectionFactory>TopicConnectionFactory</ae.aepalette.sharedProperties.jmsTopicSessionConnectionFactory>
+            <ae.aepalette.sharedProperties.jmsSessionUsername/>
+            <ae.aepalette.sharedProperties.jmsSessionProviderURL>%%JmsProviderUrl%%</ae.aepalette.sharedProperties.jmsSessionProviderURL>
+            <ae.aepalette.sharedProperties.jmsQueueSessionConnectionFactory>QueueConnectionFactory</ae.aepalette.sharedProperties.jmsQueueSessionConnectionFactory>
+            <ae.aepalette.sharedProperties.autoGenClientID>true</ae.aepalette.sharedProperties.autoGenClientID>
+            <ae.aepalette.sharedProperties.adapterService>/Adapter/Pending.adb#adapterService.ADBPublisher</ae.aepalette.sharedProperties.adapterService>
+            <ae.aepalette.sharedProperties.jmsQueueSessionQueue>%domain%.%deploymt%.adb.PendingActiveDatabaseAdapterConfiguration.ADBPublisher</ae.aepalette.sharedProperties.jmsQueueSessionQueue>
+            <ae.aepalette.sharedProperties.outputMeta>
+                <aeMeta>/AESchemas/ae/ADB/Pending.aeschema#class.P_PendingOrders</aeMeta>
+            </ae.aepalette.sharedProperties.outputMeta>
+            <ae.aepalette.sharedProperties.isAutoConfirm>true</ae.aepalette.sharedProperties.isAutoConfirm>
+        </config>
+        <pd:inputBindings/>
+    </pd:starter>
+    <pd:endName>End</pd:endName>
+    <pd:endX>725</pd:endX>
+    <pd:endY>91</pd:endY>
+    <pd:errorSchemas/>
+    <pd:processVariables/>
+    <pd:targetNamespace>http://xmlns.example.com/1731996490530</pd:targetNamespace>
+    <pd:activity name="Parse XML">
+        <pd:type>com.tibco.plugin.xml.XMLParseActivity</pd:type>
+        <pd:resourceType>ae.activities.XMLParseActivity</pd:resourceType>
+        <pd:x>463</pd:x>
+        <pd:y>123</pd:y>
+        <config>
+            <inputStyle>text</inputStyle>
+            <xsdVersion>default</xsdVersion>
+            <validateOutput>true</validateOutput>
+            <term ref="pfx:FoodOrder"/>
+        </config>
+        <pd:inputBindings>
+            <xmlString>
+                <xsl:value-of select="$Render-XML/xmlString"/>
+            </xmlString>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:activity name="Render XML">
+        <pd:type>com.tibco.plugin.xml.XMLRendererActivity</pd:type>
+        <pd:resourceType>ae.activities.XMLRendererActivity</pd:resourceType>
+        <pd:x>333</pd:x>
+        <pd:y>114</pd:y>
+        <config>
+            <renderAsText>text</renderAsText>
+            <validateInput>false</validateInput>
+            <term ref="pfx:FoodOrder"/>
+        </config>
+        <pd:inputBindings>
+            <pfx:FoodOrder>
+                <pfx:Response>
+                    <pfx:order_id>
+                        <xsl:value-of select="$Adapter-Subscriber/ProcessStarterOutput/body/ns1:P__PendingOrders/order__id"/>
+                    </pfx:order_id>
+                    <pfx:customer_id>
+                        <xsl:value-of select="$Adapter-Subscriber/ProcessStarterOutput/body/ns1:P__PendingOrders/customer__id"/>
+                    </pfx:customer_id>
+                    <pfx:food_item>
+                        <xsl:value-of select="$Adapter-Subscriber/ProcessStarterOutput/body/ns1:P__PendingOrders/food__items"/>
+                    </pfx:food_item>
+                    <pfx:quantity>
+                        <xsl:value-of select="$Adapter-Subscriber/ProcessStarterOutput/body/ns1:P__PendingOrders/quantity"/>
+                    </pfx:quantity>
+                    <pfx:orderStatus>
+                        <xsl:value-of select="$Adapter-Subscriber/ProcessStarterOutput/body/ns1:P__PendingOrders/order__status"/>
+                    </pfx:orderStatus>
+                </pfx:Response>
+            </pfx:FoodOrder>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:activity name="JMS Topic Publisher">
+        <pd:type>com.tibco.plugin.jms.JMSTopicPublishActivity</pd:type>
+        <pd:resourceType>ae.activities.JMSTopicPublishActivity</pd:resourceType>
+        <pd:x>599</pd:x>
+        <pd:y>126</pd:y>
+        <config>
+            <PermittedMessageType>XML Text</PermittedMessageType>
+            <SessionAttributes>
+                <transacted>false</transacted>
+                <acknowledgeMode>1</acknowledgeMode>
+                <maxSessions>1</maxSessions>
+                <destination>food_order_topic</destination>
+            </SessionAttributes>
+            <ConfigurableHeaders>
+                <JMSDeliveryMode>PERSISTENT</JMSDeliveryMode>
+                <JMSExpiration>0</JMSExpiration>
+                <JMSPriority>4</JMSPriority>
+                <JMSReplyTo>food_order_topic</JMSReplyTo>
+            </ConfigurableHeaders>
+            <ConnectionReference>/Connections/JMS/JMS Connection.sharedjmscon</ConnectionReference>
+            <InDataxsdString ref="pfx:FoodOrder"/>
+        </config>
+        <pd:inputBindings>
+            <ns2:ActivityInput>
+                <Body>
+                    <pfx:FoodOrder>
+                        <pfx:Response>
+                            <pfx:order_id>
+                                <xsl:value-of select="$Parse-XML/pfx:FoodOrder/pfx:Response/pfx:order_id"/>
+                            </pfx:order_id>
+                            <pfx:customer_id>
+                                <xsl:value-of select="$Parse-XML/pfx:FoodOrder/pfx:Response/pfx:customer_id"/>
+                            </pfx:customer_id>
+                            <pfx:food_item>
+                                <xsl:value-of select="$Parse-XML/pfx:FoodOrder/pfx:Response/pfx:food_item"/>
+                            </pfx:food_item>
+                            <pfx:quantity>
+                                <xsl:value-of select="$Parse-XML/pfx:FoodOrder/pfx:Response/pfx:quantity"/>
+                            </pfx:quantity>
+                            <pfx:orderStatus>
+                                <xsl:value-of select="$Parse-XML/pfx:FoodOrder/pfx:Response/pfx:orderStatus"/>
+                            </pfx:orderStatus>
+                        </pfx:Response>
+                    </pfx:FoodOrder>
+                </Body>
+            </ns2:ActivityInput>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:transition>
+        <pd:from>Adapter Subscriber</pd:from>
+        <pd:to>Render XML</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Parse XML</pd:from>
+        <pd:to>JMS Topic Publisher</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Render XML</pd:from>
+        <pd:to>Parse XML</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>JMS Topic Publisher</pd:from>
+        <pd:to>End</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+</pd:ProcessDefinition>

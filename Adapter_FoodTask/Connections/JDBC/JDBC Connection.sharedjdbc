@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BWSharedResource>
+    <name>JDBC Connection</name>
+    <resourceType>ae.shared.JDBCSharedResource</resourceType>
+    <config>
+        <driver>tibcosoftwareinc.jdbc.sqlserver.SQLServerDriver</driver>
+        <maxConnections>10</maxConnections>
+        <loginTimeout>0</loginTimeout>
+        <connectionType>JDBC</connectionType>
+        <UseSharedJndiConfig>false</UseSharedJndiConfig>
+        <location>jdbc:tibcosoftwareinc:sqlserver://DSI-PROD-01:1433;databaseName=Rohith</location>
+        <user>%%Connections/JDBC/Username%%</user>
+        <password>%%Connections/JDBC/Password%%</password>
+    </config>
+</BWSharedResource>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.tibco.com/schemas/FoodOrdering/Schemas/Schema.xsd2"
+	 targetNamespace="http://www.tibco.com/schemas/FoodOrdering/Schemas/Schema.xsd2"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="FoodOrder">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Response"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Response">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="order_id"/>
+				<xs:element ref="customer_id"/>
+				<xs:element ref="food_item"/>
+				<xs:element ref="quantity"/>
+				<xs:element ref="orderStatus"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="order_id" type="xs:int"/>
+	<xs:element name="customer_id" type="xs:int"/>
+	<xs:element name="food_item" type="xs:string"/>
+	<xs:element name="quantity" type="xs:int"/>
+	<xs:element name="orderStatus" type="xs:string"/>
+</xs:schema>

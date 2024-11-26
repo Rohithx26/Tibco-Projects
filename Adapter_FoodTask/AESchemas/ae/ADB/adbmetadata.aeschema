@@ -1,0 +1,790 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Repository:repository xmlns="http://www.tibco.com/xmlns/aemeta/types/2002" xmlns:Repository="http://www.tibco.com/xmlns/repo/types/2002" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <class name="SQL_REQUEST">
+        <attribute>
+            <name>STATEMENTS</name>
+            <attributeType isRef="true">#sequence.sequence[SQL_STATEMENT]</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>CLOSURE</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.any</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+    </class>
+    <class name="POLL_COMMAND">
+        <attribute>
+            <name>ID</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>PUBLISHING_TABLE</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>RETURN_CLASS</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>RETURN_QUEUE</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>DATA_SOURCE</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>USER_NAME</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>PASSWORD</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>DATABASE_NAME</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+    </class>
+    <class name="ADB_SUBSCRIBER_STATUS">
+        <attribute>
+            <name>RETURN_CODE</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.i4</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>ADB_TEXT</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>CALLOUT_TEXT</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+    </class>
+    <class name="ADB_TABLEMAPPING">
+        <attribute>
+            <name>PUB_CHILD_TABLE</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>SUB_CHILD_TABLE</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+    </class>
+    <class name="ADB_PREREGLISTENER">
+        <attribute>
+            <name>SUBJECT</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>LISTENER</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+    </class>
+    <class name="ADB_SUBINFO">
+        <attribute>
+            <name>SUBJECT</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>DESTINATION_TABLE</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>QUALITY_OF_SERVICE</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>DATA_FORMAT</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>DATA_SOURCE</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>USER_NAME</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>PASSWORD</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>DATABASE_NAME</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>EXCEPTION_TABLE</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+    </class>
+    <class name="ADB_PUBINFO">
+        <attribute>
+            <name>SUBJECT</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>SOURCE_TABLE</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>PUBLISHING_TABLE</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>QUALITY_OF_SERVICE</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>DATA_FORMAT</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>DATA_SOURCE</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>STORAGE_MODE</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>USER_NAME</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>PASSWORD</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>DATABASE_NAME</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+    </class>
+    <class name="ADB_RELINFO">
+        <attribute>
+            <name>RELATIONSHIP_NAME</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>PARENT_TABLE</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>PARENT_KEYS</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>CHILD_TABLE</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>IS_PUB</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+    </class>
+    <class name="TERMINATE"/>
+    <class name="SQL_COMMAND">
+        <attribute>
+            <name>ID</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>COMMAND</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>RETURN_CLASS</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>RETURN_QUEUE</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>DATA_SOURCE</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>USER_NAME</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>PASSWORD</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>DATABASE_NAME</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+    </class>
+    <class name="SQL_STATUS">
+        <attribute>
+            <name>ID</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>STATUS</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>MESSAGE</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+    </class>
+    <class name="NEW_SUBSCRIPTION">
+        <attribute>
+            <name>SUBJECT</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+    </class>
+    <class name="NEW_PUBLICATION">
+        <attribute>
+            <name>SUBJECT</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+    </class>
+    <class name="CONFIRM_MESSAGE"/>
+    <class name="COMMIT_TRANSACTION"/>
+    <class name="SPLIT_MESSAGE">
+        <attribute>
+            <name>ID</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>CLASSNAME</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>CHUNK_NUM</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.i4</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>CHUNK_SIZE</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.i4</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>MESSAGE_SIZE</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.i4</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>CHUNK_BUFFER</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.binary</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+    </class>
+    <class name="adbDateTime">
+        <attribute>
+            <name>dateTime</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+    </class>
+    <class name="ExplicitNull">
+        <attribute>
+            <name>explicitNullAttribute</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.boolean</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+    </class>
+    <class name="MULTIROW_MESSAGE">
+        <attribute>
+            <name>MULTIROW_STMT</name>
+            <attributeType isRef="true">/AESchemas/ae/ADB/scalar.aeschema#sequence.sequence[any]</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+    </class>
+    <class name="ADB_REQREPINFO">
+        <attribute>
+            <name>REQUEST_SUBJECT</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>REPLY_SUBJECT</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>QUEUE_NAME</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>QUALITY_OF_SERVICE</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>DATA_FORMAT</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>DATA_SOURCE</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>USER_NAME</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>PASSWORD</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>DATABASE_NAME</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+    </class>
+    <class name="SQL_ROW">
+        <attribute>
+            <name>ROW</name>
+            <attributeType isRef="true">/AESchemas/ae/ADB/scalar.aeschema#sequence.sequence[any]</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+    </class>
+    <class name="SQL_BIND">
+        <attribute>
+            <name>POSITION</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.i4</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>NAME</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>PARAMTYPE</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+            <default>IN</default>
+        </attribute>
+        <attribute>
+            <name>DATA</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.any</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+    </class>
+    <class name="SQL_RESULTSET">
+        <attribute>
+            <name>HEADER</name>
+            <attributeType isRef="true">/AESchemas/ae/ADB/scalar.aeschema#sequence.sequence[string]</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>ROWVALUES</name>
+            <attributeType isRef="true">#sequence.sequence[SQL_ROW]</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+    </class>
+    <class name="SQL_RETURN">
+        <attribute>
+            <name>STATUS</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>SQL</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>ERROR_DESC</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>CLOSURE</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.any</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>RETURNVALUE</name>
+            <attributeType isRef="true">#class.SQL_RETURNVALUE</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+    </class>
+    <class name="SQL_BATCHRETURN">
+        <attribute>
+            <name>STATUS</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>SQL</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>ERROR_DESC</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>CLOSURE</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.any</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>RETURNVALUES</name>
+            <attributeType isRef="true">#sequence.sequence[SQL_RETURNVALUE]</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+    </class>
+    <class name="SQL_RETURNVALUE">
+        <attribute>
+            <name>CLOSURE</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.any</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>OUTBINDS</name>
+            <attributeType isRef="true">#sequence.sequence[SQL_BIND]</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>RESULTSETS</name>
+            <attributeType isRef="true">#sequence.sequence[SQL_RESULTSET]</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+    </class>
+    <class name="SQL_STATEMENT">
+        <attribute>
+            <name>MAXROWS</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.i4</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>SQL_STRING</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>CLOSURE</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.any</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>BINDS</name>
+            <attributeType isRef="true">#sequence.sequence[SQL_BIND]</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+    </class>
+    <class name="CUSTOM_OP_OUTPUT_OPTION">
+        <attribute>
+            <name>ERROR_DESC</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+        <attribute>
+            <name>SQL</name>
+            <attributeType isRef="true">/AESchemas/ae.aeschema#scalar.string</attributeType>
+            <isKey>false</isKey>
+            <isReadable>true</isReadable>
+            <isWriteable>true</isWriteable>
+        </attribute>
+    </class>
+    <rpcClass name="SQL_OPS">
+        <operation>
+            <name>SQL_BATCHEXECUTE</name>
+            <returnType isRef="true">#class.SQL_BATCHRETURN</returnType>
+            <oneway>false</oneway>
+            <parameter>
+                <name>STATEMENTS</name>
+                <parameterType isRef="true">#sequence.sequence[SQL_STATEMENT]</parameterType>
+                <direction>in</direction>
+            </parameter>
+        </operation>
+        <operation>
+            <name>SQL_EXECUTE</name>
+            <returnType isRef="true">#class.SQL_RETURN</returnType>
+            <oneway>false</oneway>
+            <parameter>
+                <name>STATEMENT</name>
+                <parameterType isRef="true">#class.SQL_STATEMENT</parameterType>
+                <direction>in</direction>
+            </parameter>
+        </operation>
+    </rpcClass>
+    <sequence name="sequence[SQL_ROW]">
+        <maxLength>0</maxLength>
+        <elementType isRef="true">#class.SQL_ROW</elementType>
+    </sequence>
+    <sequence name="sequence[SQL_BIND]">
+        <maxLength>0</maxLength>
+        <elementType isRef="true">#class.SQL_BIND</elementType>
+    </sequence>
+    <sequence name="sequence[SQL_RESULTSET]">
+        <maxLength>0</maxLength>
+        <elementType isRef="true">#class.SQL_RESULTSET</elementType>
+    </sequence>
+    <sequence name="sequence[SQL_STATEMENT]">
+        <maxLength>0</maxLength>
+        <elementType isRef="true">#class.SQL_STATEMENT</elementType>
+    </sequence>
+    <sequence name="sequence[SQL_RETURNVALUE]">
+        <maxLength>0</maxLength>
+        <elementType isRef="true">#class.SQL_RETURNVALUE</elementType>
+    </sequence>
+    <designer>
+        <lockedProperties/>
+        <fixedChildren/>
+        <resourceDescriptions/>
+    </designer>
+</Repository:repository>

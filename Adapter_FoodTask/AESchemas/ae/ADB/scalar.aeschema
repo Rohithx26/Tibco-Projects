@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Repository:repository xmlns="http://www.tibco.com/xmlns/aemeta/types/2002" xmlns:Repository="http://www.tibco.com/xmlns/repo/types/2002" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <sequence name="sequence[string]">
+        <maxLength>0</maxLength>
+        <elementType isRef="true">/AESchemas/ae.aeschema#scalar.string</elementType>
+    </sequence>
+    <sequence name="sequence[any]">
+        <maxLength>0</maxLength>
+        <elementType isRef="true">/AESchemas/ae.aeschema#scalar.any</elementType>
+    </sequence>
+    <designer>
+        <lockedProperties/>
+        <fixedChildren/>
+        <resourceDescriptions/>
+    </designer>
+</Repository:repository>

@@ -1,0 +1,21 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<repository xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance" xmlns = "http://www.tibco.com/xmlns/repo/types/2002">
+	<globalVariables>
+		<globalVariable>
+			<name>Password</name>
+			<value>#!Iqa5DnU5i9K4f2ecI+wR1VRFEhpT7uCIRysGIr6cG3M=</value>
+			<deploymentSettable>true</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>Password</type>
+			<modTime>1731913754217</modTime>
+		</globalVariable>
+		<globalVariable>
+			<name>Username</name>
+			<value>tibco_dev</value>
+			<deploymentSettable>true</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>String</type>
+			<modTime>1731913754201</modTime>
+		</globalVariable>
+	</globalVariables>
+</repository>

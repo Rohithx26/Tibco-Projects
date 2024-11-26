@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:ns2="http://www.tibco.com/schemas/FoodOrdering/Schemas/Schema.xsd2" xmlns:ns="http://www.tibco.com/schemas/FoodOrdering/Schemas/Schema.xsd" xmlns:tns="http://xmlns.example.com/1731926931917" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://xmlns.example.com/1731926931917">
+    <import namespace="http://www.tibco.com/schemas/FoodOrdering/Schemas/Schema.xsd" location="../Schemas/Menu_Response.xsd"/>
+    <import namespace="http://www.tibco.com/schemas/FoodOrdering/Schemas/Schema.xsd2" location="../Schemas/Food_Order.xsd"/>
+    <message name="GetMenu">
+        <part name="Output" element="ns:MenuResponse"/>
+    </message>
+    <message name="Request"/>
+    <portType name="PortType">
+        <operation name="GetMenu">
+            <output message="tns:GetMenu"/>
+            <input message="tns:Request"/>
+        </operation>
+    </portType>
+</definitions>

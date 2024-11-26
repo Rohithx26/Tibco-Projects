@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Created by TIBCO WSDL-->
+<wsdl:definitions xmlns:ns2="http://www.tibco.com/schemas/Adapter_FoodTask/Schemas/Schema.xsd2" xmlns:ns1="http://www.tibco.com/schemas/FoodOrdering/Schemas/Schema.xsd2" xmlns:tns="http://xmlns.example.com/1732120725431" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns0="http://www.tibco.com/schemas/Adapter_FoodTask/Schemas/Schema.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="Untitled" targetNamespace="http://xmlns.example.com/1732120725431">
+    <wsdl:types>
+        <xs:schema xmlns="http://www.tibco.com/schemas/Adapter_FoodTask/Schemas/Schema.xsd2" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.tibco.com/schemas/Adapter_FoodTask/Schemas/Schema.xsd2" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:element name="ErrorResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns2:Response"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Response" type="xs:string"/>
+        </xs:schema>
+        <xs:schema xmlns="http://www.tibco.com/schemas/FoodOrdering/Schemas/Schema.xsd2" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.tibco.com/schemas/FoodOrdering/Schemas/Schema.xsd2" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:element name="FoodOrder">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns1:Response"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Response">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns1:order_id"/>
+                        <xs:element ref="ns1:customer_id"/>
+                        <xs:element ref="ns1:food_item"/>
+                        <xs:element ref="ns1:quantity"/>
+                        <xs:element ref="ns1:orderStatus"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="customer_id" type="xs:int"/>
+            <xs:element name="food_item" type="xs:string"/>
+            <xs:element name="orderStatus" type="xs:string"/>
+            <xs:element name="order_id" type="xs:int"/>
+            <xs:element name="quantity" type="xs:int"/>
+        </xs:schema>
+        <xs:schema xmlns="http://www.tibco.com/schemas/Adapter_FoodTask/Schemas/Schema.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.tibco.com/schemas/Adapter_FoodTask/Schemas/Schema.xsd" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:element name="Customer_Order">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns0:customer_id"/>
+                        <xs:element ref="ns0:food_items"/>
+                        <xs:element ref="ns0:quantity"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="customer_id" type="xs:string"/>
+            <xs:element name="food_items" type="xs:string"/>
+            <xs:element name="quantity" type="xs:string"/>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:service name="Customer_Order-service1">
+        <wsdl:port name="PortTypeEndpoint1" binding="tns:PortTypeEndpoint1Binding">
+            <soap:address location="http://localhost:9895/WSDL/Customer_Order-service1.serviceagent/PortTypeEndpoint1"/>
+        </wsdl:port>
+    </wsdl:service>
+    <wsdl:portType name="PortType">
+        <wsdl:operation name="Operation">
+            <wsdl:input message="tns:Customer_Input"/>
+            <wsdl:output message="tns:FoodOrder"/>
+            <wsdl:fault name="fault1" message="tns:error"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="PortTypeEndpoint1Binding" type="tns:PortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="Operation">
+            <soap:operation style="document" soapAction="/WSDL/Customer_Order-service1.serviceagent/PortTypeEndpoint1/Operation"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="OrderInput"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="FoodOrder"/>
+            </wsdl:output>
+            <wsdl:fault name="fault1">
+                <soap:fault use="literal" name="fault1"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:message name="Customer_Input">
+        <wsdl:part name="OrderInput" element="ns0:Customer_Order"/>
+    </wsdl:message>
+    <wsdl:message name="FoodOrder">
+        <wsdl:part name="FoodOrder" element="ns1:FoodOrder"/>
+    </wsdl:message>
+    <wsdl:message name="error">
+        <wsdl:part name="part1" element="ns2:ErrorResponse"/>
+    </wsdl:message>
+</wsdl:definitions>
